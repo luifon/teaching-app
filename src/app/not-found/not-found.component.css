@@ -1,0 +1,8 @@
+.not-found-page{
+    max-width: 500px;
+    margin: auto;
+}
+
+.error-code {
+    color: crimson;
+}

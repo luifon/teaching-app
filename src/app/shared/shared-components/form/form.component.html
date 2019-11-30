@@ -1,0 +1,26 @@
+<form class="example-form" style="margin-left: 10%;">
+
+    <mat-form-field>
+        <input matInput placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="person.email" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Name" [formControl]="nameFormControl" [(ngModel)]="person.name" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="nameFormControl.hasError('minlength')">
+            Name is <strong>bigger than 10 characters</strong>
+        </mat-error>
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+            Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button (click)="addPerson()" color="primary" [disabled]="!emailFormControl.valid && !nameFormControl.valid">Add new person</button>
+
+</form>

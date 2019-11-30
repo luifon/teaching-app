@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'teaching-app';
+
+  receivePerson(eventValue) {
+    console.log(eventValue);
+  }
 }

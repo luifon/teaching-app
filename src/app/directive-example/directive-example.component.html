@@ -1,0 +1,55 @@
+<div class="home-page">
+
+    <h1>Directive Examples</h1>
+
+    <form>
+
+        <div class="left-half">
+            <h3>Numbers only example</h3>
+
+            <mat-form-field>
+                <input matInput type="text" [ngModel]="value" name="value" placeholder="Numbers only"
+                    (ngModelChange)="onChange()" appNumbersOnly />
+                <mat-hint>
+                    Change fire counter : {{counter}}
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-divider style="margin-top: 50px;"></mat-divider>
+
+            <h3>Style example</h3>
+            <button mat-raised-button (click)="isHidden = !isHidden" color="primary">
+                Show!
+            </button>
+            <p appCrimsonBackground [hidden]="isHidden" style="width: 20%; text-align: center;">
+                Crimson background element
+            </p>
+
+        </div>
+
+        <div class="right-half">
+
+            <h3>Decimals example</h3>
+            <mat-form-field>
+                <input matInput type="text" numericType="decimal" [ngModel]="decimal" name="decimal"
+                    placeholder="Decimals only" (ngModelChange)="onChangeDecimal()" appDecimalsOnly />
+                <mat-hint>
+                    Change fire counter : {{counterDecimal}}
+                </mat-hint>
+            </mat-form-field>
+
+            <mat-divider style="margin-top: 50px;"></mat-divider>
+
+            <h3>Custom Style example</h3>
+            <button mat-raised-button (click)="isHiddenCustom = !isHiddenCustom" color="warn">
+                Show!
+            </button>
+            <p appCustomBackground inputColor="orange" [hidden]="isHiddenCustom" style="width: 20%; text-align: center;">
+                Input background element
+            </p>
+
+        </div>
+
+    </form>
+
+</div>

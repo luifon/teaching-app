@@ -1,0 +1,49 @@
+<div class="home-page">
+
+    <h1>Basic Examples</h1>
+
+    <div class="left-half">
+        <h3>Data Binding Example</h3>
+        <form>
+
+            <p class="p-show">One-way Binding</p>
+            <p [innerHtml]="name"></p>
+
+            <p class="p-show">Two-way Binding</p>
+            <mat-form-field>
+                <input matInput placeholder="Name" [(ngModel)]="name" name="name">
+            </mat-form-field>
+
+
+            <p class="p-show">Interpolation + *ngIf Example</p>
+            <p> Name will appear when defined:</p>
+            <p *ngIf="name">
+                Name: {{name}}
+            </p>
+
+            <p class="p-show">Event Binding</p>
+            <p>So what's the difference between interpolation and one-way binding?</p>
+            <button mat-raised-button [disabled]="isDisabled" (click)="isHidden = !isHidden" color="warn">
+                Show it!
+            </button>
+        </form>
+
+    </div>
+
+    <div class="right-half" [hidden]="isHidden">
+
+        <h2>Only appears when not hidden!</h2>
+
+        <button mat-raised-button (click)="isDisabled = !isDisabled" color="warn">Make it disabled!</button>
+
+
+        <p class="p-show">*ngFor Example</p>
+        <button mat-raised-button (click)="addMore(name)" color="primary" [disabled]="!name">Click to add more!</button>
+        <ul>
+            <li *ngFor="let item of items, let i = index">
+                {{i}}: {{item}}
+            </li>
+        </ul>
+    </div>
+
+</div>
